@@ -1,0 +1,14 @@
+extends layout/base.pug
+
+block append styles
+    link(rel='stylesheet', href='/css/housing.css')
+
+block content
+    aside.columns.small-12.medium-3
+        | Filter stuff
+    article.columns.small-12.medium-9
+        #map
+
+block append scripts
+    script(src='/js/maps.js')
+    script(async, defer, src=`https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&callback=initMap`)

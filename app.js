@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 
 const siteMetadata = {
-    title: 'Spring Board'
+    title: 'Spring Board',
+    mapsApiKey: 'AIzaSyA7jFnXk_ZPHIQaTiH9qr9FikI2vl67mvA'
 };
 
 app.set('view engine', 'pug');
