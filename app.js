@@ -25,16 +25,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/housing-list', (req, res) => {
-    connection_pool.query(`SELECT AL.apartment_id,
-                           AL.apartment_street_address,
-                           AL.apartment_city,
-                           SL.state_name,
-                           SL.state_code,
-                           AL.apartment_start_date,
-                           AL.apartment_end_date
-                           FROM APARTMENT_LISTING AS AL JOIN
-                           STATE_LIST AS SL
-                           ON AL.apartment_state_id = SL.state_id`, function(err, rows, fields){
+    connection_pool.query('SELECT * FROM USER_APARTMENT_LISTING_VIEW;', function(err, rows, fields){
                              if(err) throw err;
                              res.setHeader('Content-Type', 'application/json');
                              res.send(JSON.stringify(rows));
