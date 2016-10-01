@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title= title
+
+        block styles
+            link(rel='stylesheet', href='css/app.css')
+    body
+        include _header.pug
+
+        block content
+
+        include _footer.pug
+
+        block scripts
+            script(scr='bower_components/jquery/dist/jquery.js')
+            script(scr='bower_components/what-input/what-input.js')
+            script(scr='bower_components/foundation-sites/dist/foundation.js')
+            script(scr='js/app.js')

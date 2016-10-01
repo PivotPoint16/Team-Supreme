@@ -48,3 +48,15 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+#banner {
+    background-image: url("/img/banner.jpg");
+    max-height: 10rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background-color: $primary-color;
+    color: $white;
+}
