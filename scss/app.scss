@@ -50,13 +50,15 @@
 @include motion-ui-animations;
 
 #banner {
-    background-image: url("/img/banner.jpg");
-    max-height: 10rem;
-    background-size: cover;
-    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
 }
 
 footer {
-    background-color: $primary-color;
-    color: $white;
+    background-color: $secondary-color;
+    color: $light-gray;
+
+    .columns {
+        padding: 1.5rem;
+    }
 }

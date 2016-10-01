@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass"
+    "build": "gulp sass",
+    "serve": "foundation watch &; node app.js"
   },
   "license": "MIT",
   "private": true,
