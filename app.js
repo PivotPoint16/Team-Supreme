@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Hello HUD'
+        title: 'Spring Board'
     });
 });
 
