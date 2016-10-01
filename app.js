@@ -6,10 +6,11 @@ app.set('views', './views');
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
-  res.render('index',{title:'Hello HUD'});
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Hello HUD'
+    });
 });
 
-app.listen(3000, function(){
-  console.log('HUD HUD Hudding.');
-})
+const port = 3000;
+app.listen(port, () => console.log(`Running on port ${port}...`));
