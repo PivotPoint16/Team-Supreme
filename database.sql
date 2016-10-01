@@ -25,7 +25,7 @@ CREATE TABLE STATE_LIST
 
 CREATE TABLE APARTMENT_LISTING
 (
-  apartment_id int not null primary key,
+  apartment_id int not null primary key auto_increment,
   apartment_street_address varchar(256) not null,
   apartment_city varchar(100) not null,
   apartment_state_id int not null,
