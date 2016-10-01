@@ -125,7 +125,8 @@ LIST OF USERS
 INSERT INTO USER VALUES
 (NULL, 'shawnee', 'Shawnee Apartments', 'shawnee@cmgleasing.com', '(540) 552-2384'),
 (NULL, 'terraceview', 'Terrace View Apartments', 'leasing@terraceviewapartments.com', '(540) 315-3280'),
-(NULL, 'theedge', 'The Edge', 'leasing@vtcampusedge.com', '(540) 552-3343');
+(NULL, 'theedge', 'The Edge', 'leasing@vtcampusedge.com', '(540) 552-3343'),
+(NULL, 'hud', 'US Department of Housing and Urban Development', 'contactus@hud.gov', '(202) 708-1112');
 
 /*
 LIST OF TEST APARTMENT LISTINGS
@@ -134,6 +135,7 @@ INSERT INTO APARTMENT_LISTING VALUES
 (NULL, '1222 UNIVERSITY CITY BLVD.', 'BLACKSBURG', 46, 24060),
 (NULL, '413 HUNT CLUB RD', 'BLACKSBURG', 46, 24060),
 (NULL, '321 EDGE WAY', 'BLACKSBURG', 46, 24060);
+
 
 
 /*
@@ -149,7 +151,7 @@ INSERT INTO USER_APARTMENT_INFO VALUES
 CREATE VIEW
 */
 CREATE VIEW USER_APARTMENT_LISTING_VIEW AS
-                      SELECT AL.apartment_id,
+                      SELECT UAI.user_apartment_info_id,
                        CONCAT(
                        AL.apartment_street_address, ', ',
                        AL.apartment_city, ', ',
