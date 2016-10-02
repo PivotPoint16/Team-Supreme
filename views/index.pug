@@ -13,7 +13,7 @@ block content
             | designed to fight homelessness and provide a helping hand to those
             | affected by unemployment.  In communities affected by disasters,
             | we offers a way for residents to get temparary housing
-            | and get back on their feeet.  Finally, Spring Board takes pride in
+            | and get back on their feet.  Finally, Spring Board takes pride in
             | being is a nonprofit organization.
         #badges.row
             .columns.small-12.medium-4.text-center
@@ -42,18 +42,27 @@ block content
 
     aside.columns.small-12.medium-3
         h5 Upcoming Listings
-        ul.no-bullet
-            - for(let i = 0; i < listings.length; i++)
-                - const listing = listings[i];
+        ul
+            - for(let i = 0; i < houses.length; i++)
+                - const listing = houses[i];
                 li
                     a(href=`/housing/${listing.user_apartment_info_id}`)
                         | $
                         =listing.user_apartment_info_rent
                         | /m&nbsp;&ndash;&nbsp;
                         =listing.apartment_short_address
-        h5 Recent Job Openings
-        p
-            | TODO
+        hr
+        h5 Job Openings
+        ul
+            - for(let i = 0; i < jobs.length; i++)
+                - const job = jobs[i];
+                li
+                    a(href=`/jobs/${job.jobs_listing_id}`)
+                        =job.businessname
+                        | &nbsp;&ndash;&nbsp;
+                        =job.shortaddress
+
+        hr
         h5 Additional Links
         ul
             li

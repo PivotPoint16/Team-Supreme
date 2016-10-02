@@ -19,7 +19,7 @@ block content
         h4 Host Information
         p= listing.user_fullname
             br
-            a(href=listing.user_email)= listing.user_email
+            a(href=`mailto:${listing.user_email}`)= listing.user_email
             br
             =listing.user_phone
     aside.columns.small-12.medium-4

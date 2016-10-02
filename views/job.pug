@@ -1,0 +1,26 @@
+extends layout/base.pug
+
+block content
+    h4= job.businessname
+    h5 Jobs Available
+    p= job.jobs
+    h5 Company Description
+    p= job.businesscapabilitiesnarrative
+    h5 Location
+    p= job.businessaddress
+
+    hr
+
+    h5 Contact Information
+    p
+        if job.businesspointofcontact
+            =job.businesspointofcontact
+            br
+        if job.businessemail
+            a(href=`mailto:${job.businessemail}`)= job.businessemail
+            br
+        if job.buisnessphonenumber
+            =job.businessphonenumber
+            br
+        if job.businesswebsiteaddress
+            a(href=`http://${job.businesswebsiteaddress}`)=job.businesswebsiteaddress

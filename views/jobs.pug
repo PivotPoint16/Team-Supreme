@@ -1,0 +1,19 @@
+extends layout/base.pug
+
+block append styles
+    link(rel='stylesheet', href='/css/jobs.css')
+
+block content
+    h1.text-center Search for Jobs
+    article.columns.small-12.medium-9.medium-push-3
+        #map
+    aside.columns.small-12.medium-3.medium-pull-9
+        h3 Narrow your Search
+        label
+            | Location:
+            input#location(type="text")
+
+block append scripts
+    script(src='/js/jobs.js')
+    script(src='/bower_components/js-marker-clusterer/src/markerclusterer.js')
+    script(async, defer, src=`https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&callback=initMap`)

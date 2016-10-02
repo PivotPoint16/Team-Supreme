@@ -25,7 +25,15 @@ app.get('/', (req, res) => {
 user_apartment_info_end_date > NOW() ORDER BY user_apartment_info_start_date
 LIMIT 4`, (err, rows, fields) => {
         if (err) throw err;
-        res.render('index', Object.assign({listings: rows}, siteMetadata));
+
+        connection_pool.query(`SELECT * FROM JOBS_CITY_LISTING_VIEW LIMIT 4`,
+            (err2, rows2, fields2) => {
+                if (err2) throw err2;
+            res.render('index', Object.assign({
+                houses: rows,
+                jobs: rows2
+            }, siteMetadata));
+        });
     });
 });
 
@@ -52,6 +60,14 @@ app.get('/housing/:id', (req, res) => {
         (err, rows, fields) => {
             if (err) throw err;
             res.render('listing', Object.assign({listing: rows[0]}, siteMetadata));
+        });
+});
+
+app.get('/jobs/:id', (req, res) => {
+    connection_pool.query(`SELECT * FROM JOBS_CITY_LISTING_VIEW WHERE jobs_listing_id=${req.params.id};`,
+        (err, rows, fields) => {
+            if (err) throw err;
+            res.render('job', Object.assign({job: rows[0]}, siteMetadata));
         });
 });
 
