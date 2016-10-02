@@ -38,6 +38,12 @@ app.get('/housing-list', (req, res) => {
         });
 });
 
+app.get('/jobs-list', (req, res) => {
+  const data = require('./etc/hudJobs');
+  res.setHeader('Content-Type', 'application/json');
+  res.send(data);
+});
+
 app.get('/housing/:id', (req, res) => {
     connection_pool.query(`SELECT * FROM USER_APARTMENT_LISTING_VIEW WHERE user_apartment_info_id=${req.params.id};`,
         (err, rows, fields) => {
