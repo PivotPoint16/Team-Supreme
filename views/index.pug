@@ -6,9 +6,16 @@ block content
         p
             | Spring Board is...
     aside.columns.small-12.medium-3
-        h5 Recent Listings
-        p
-            | TODO
+        h5 Upcoming Listings
+        ul.no-bullet
+            - for(let i = 0; i < listings.length; i++)
+                - const listing = listings[i];
+                li
+                    a(href=`/housing/${listing.user_apartment_info_id}`)
+                        | $
+                        =listing.user_apartment_info_rent
+                        | /m&nbsp;&ndash;&nbsp;
+                        =listing.apartment_short_address
         h5 Recent Job Openings
         p
             | TODO

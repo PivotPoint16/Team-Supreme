@@ -21,7 +21,12 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-    res.render('index', siteMetadata);
+    connection_pool.query(`SELECT * FROM user_apartment_listing_view WHERE
+user_apartment_info_end_date > NOW() ORDER BY user_apartment_info_start_date
+LIMIT 4`, (err, rows, fields) => {
+        if (err) throw err;
+        res.render('index', Object.assign({listings: rows}, siteMetadata));
+    });
 });
 
 app.get('/housing-list', (req, res) => {
