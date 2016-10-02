@@ -10,8 +10,7 @@ function initMap() {
 
     var map = new google.maps.Map($('#map')[0], {
         zoom: 4,
-        center: startLatLng,
-        mapTypeId: 'hybrid',
+        center: startLatLng
     });
 
     var geocoder = new google.maps.Geocoder();
