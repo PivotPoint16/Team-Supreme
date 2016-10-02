@@ -1,10 +1,45 @@
 extends layout/base.pug
 
+block append styles
+    link(rel='stylesheet', href='/css/index.css')
+
 block content
     article.columns.small-12.medium-9
         h1.text-center Welcome to #{title}!
         p
-            | Spring Board is...
+            //- img.float-right(src="/img/logo.png")
+            | Spring Board is a crowdsourced platform for providing low-cost
+            | and no-cost public housing, workforce training, and jobs.  It is
+            | designed to fight homelessness and provide a helping hand to those
+            | affected by unemployment.  In communities affected by disasters,
+            | we offers a way for residents to get temparary housing
+            | and get back on their feeet.  Finally, Spring Board takes pride in
+            | being is a nonprofit organization.
+        #badges.row
+            .columns.small-12.medium-4.text-center
+                .icon-container
+                    i.fa.fa-heart.fa-5x
+                h5 We're Here to Help
+                p
+                    | We want you to have easy access to job listings,
+                    | afordable housing, and job training.
+
+            .columns.small-12.medium-4.text-center
+                .icon-container
+                    i.fa.fa-users.fa-5x
+                h5 Become a Supporter to Give Back
+                p
+                    | Supporters are the backbone of Spring Board and are the
+                    | driving force in improving communities around the country.
+
+            .columns.small-12.medium-4.text-center
+                .icon-container
+                    i.fa.fa-gift.fa-5x
+                h5 Supporter Benefits
+                p
+                    | Supporters are eligible for tax deductions for their
+                    | charitable donations.
+
     aside.columns.small-12.medium-3
         h5 Upcoming Listings
         ul.no-bullet

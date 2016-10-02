@@ -50,6 +50,15 @@
 @include motion-ui-animations;
 
 header {
+    #top-nav {
+        font-size: 120%;
+
+        img.icon {
+            margin: -1.3rem .5rem -1rem 0;
+            height: 3rem;
+        }
+    }
+
     #banner {
         width: 100%;
         height: auto;

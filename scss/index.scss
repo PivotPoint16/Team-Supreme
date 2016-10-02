@@ -1,0 +1,11 @@
+@import '_settings';
+
+#badges {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    .icon-container {
+        margin: .5rem;
+        color: $primary-color;
+    }
+}

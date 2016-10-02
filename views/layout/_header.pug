@@ -1,9 +1,11 @@
 header
-    .top-bar
+    #top-nav.top-bar
         .top-bar-left
             ul.menu
                 a(href='/')
-                    li.menu-text= title
+                    li.menu-text
+                        img.icon(src="/img/logo.png")
+                        =title
         .top-bar-right
             ul.menu
                 li
@@ -14,8 +16,8 @@ header
     #primary-nav.top-bar
         ul.menu.expanded.menu-centered
             li
-                a(href='/jobs') Jobs
+                a(href='/training') Training
             li
                 a(href='/housing') Housing
             li
-                a(href='/training') Training
+                a(href='/jobs') Jobs
