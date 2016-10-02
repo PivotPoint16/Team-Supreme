@@ -37,7 +37,6 @@ app.get('/housing/:id', (req, res) => {
     connection_pool.query(`SELECT * FROM USER_APARTMENT_LISTING_VIEW WHERE user_apartment_info_id=${req.params.id};`,
         (err, rows, fields) => {
             if (err) throw err;
-            console.log(rows[0].apartment_listing_address);
             res.render('listing', Object.assign({listing: rows[0]}, siteMetadata));
         });
 });
