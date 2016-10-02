@@ -4,8 +4,23 @@ block append styles
     link(rel='stylesheet', href='/css/housing.css')
 
 block content
+    h1.text-center Search for Housing
     aside.columns.small-12.medium-3
-        | Filter stuff
+        h3 Narrow your Search
+        label
+            | Location:
+            input#location(type="text")
+        label
+            | Maximum Monthly Rent:
+            .input-group
+                span.input-group-label $
+                input#max-monthly-rent.input-group-field(type="number" value="" step="100")
+        label
+            | Start Date:
+            input#start-date(type="date")
+        label
+            | End Date:
+            input#end-date(type="date")
     article.columns.small-12.medium-9
         #map
 

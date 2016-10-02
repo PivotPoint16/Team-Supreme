@@ -49,20 +49,42 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-#banner {
-    width: 100%;
-    height: auto;
+header {
+    #banner {
+        width: 100%;
+        height: auto;
+    }
+
+    #primary-nav {
+        box-shadow: 0 0 1rem rgba($black, 0.8);
+    }
 }
 
 main {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 3rem;
 }
 
 footer {
     background-color: $secondary-color;
     color: $light-gray;
 
+    h5 {
+        color: $primary-color;
+    }
+
     .columns {
-        padding: 1.5rem;
+        padding: 2rem;
+    }
+
+    a,
+    a:hover,
+    a:active {
+        color: $light-gray;
+    }
+
+    .secondary {
+        padding: .5rem;
+        background-color: darken($secondary-color, 5%);
+        color: $primary-color;
     }
 }
