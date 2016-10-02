@@ -170,7 +170,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `USER_APARTMENT_LISTING_VIEW` AS select `UAI`.`user_apartment_info_id` AS `user_apartment_info_id`,concat(`AL`.`apartment_street_address`,', ',`AL`.`apartment_city`,', ',`SL`.`state_name`,' ',`AL`.`apartment_zip_code`) AS `apartment_listing_address`,`AL`.`apartment_latitude` AS `apartment_latitude`,`AL`.`apartment_longitude` AS `apartment_longitude`,`SL`.`state_code` AS `state_code`,`UAI`.`user_apartment_info_start_date` AS `user_apartment_info_start_date`,`UAI`.`user_apartment_info_end_date` AS `user_apartment_info_end_date`,`UAI`.`user_apartment_info_rent` AS `user_apartment_info_rent`,`UAI`.`user_apartment_info_description` AS `user_apartment_info_description`,`UL`.`user_fullname` AS `user_fullname`,`UL`.`user_email` AS `user_email`,`UL`.`user_phone` AS `user_phone` from (((`USER` `UL` join `USER_APARTMENT_INFO` `UAI` on((`UL`.`user_id` = `UAI`.`user_apartment_info_user_id`))) join `APARTMENT_LISTING` `AL` on((`UAI`.`user_apartment_info_apartment_id` = `AL`.`apartment_id`))) join `STATE_LIST` `SL` on((`AL`.`apartment_state_id` = `SL`.`state_id`))) */;
+/*!50001 VIEW `USER_APARTMENT_LISTING_VIEW` AS select `UAI`.`user_apartment_info_id` AS `user_apartment_info_id`,concat(`AL`.`apartment_street_address`,`AL`.`apartment_city`,', ',`SL`.`state_name`,' ',`AL`.`apartment_zip_code`) AS `apartment_listing_address`,`AL`.`apartment_latitude` AS `apartment_latitude`,`AL`.`apartment_longitude` AS `apartment_longitude`,`SL`.`state_code` AS `state_code`,`UAI`.`user_apartment_info_start_date` AS `user_apartment_info_start_date`,`UAI`.`user_apartment_info_end_date` AS `user_apartment_info_end_date`,`UAI`.`user_apartment_info_rent` AS `user_apartment_info_rent`,`UAI`.`user_apartment_info_description` AS `user_apartment_info_description`,`UL`.`user_fullname` AS `user_fullname`,`UL`.`user_email` AS `user_email`,`UL`.`user_phone` AS `user_phone` from (((`USER` `UL` join `USER_APARTMENT_INFO` `UAI` on((`UL`.`user_id` = `UAI`.`user_apartment_info_user_id`))) join `APARTMENT_LISTING` `AL` on((`UAI`.`user_apartment_info_apartment_id` = `AL`.`apartment_id`))) join `STATE_LIST` `SL` on((`AL`.`apartment_state_id` = `SL`.`state_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -184,4 +184,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-01 21:50:27
+-- Dump completed on 2016-10-01 22:55:36
