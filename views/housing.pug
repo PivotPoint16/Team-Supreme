@@ -5,7 +5,9 @@ block append styles
 
 block content
     h1.text-center Search for Housing
-    aside.columns.small-12.medium-3
+    article.columns.small-12.medium-9.medium-push-3
+        #map
+    aside.columns.small-12.medium-3.medium-pull-9
         h3 Narrow your Search
         label
             | Location:
@@ -21,9 +23,8 @@ block content
         label
             | End Date:
             input#end-date(type="date")
-    article.columns.small-12.medium-9
-        #map
 
 block append scripts
-    script(src='/js/maps.js')
+    script(src='/js/housing.js')
+    script(src='/bower_components/js-marker-clusterer/src/markerclusterer.js')
     script(async, defer, src=`https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&callback=initMap`)

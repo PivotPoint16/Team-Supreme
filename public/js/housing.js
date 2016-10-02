@@ -8,14 +8,16 @@ function initMap() {
         lng: -97
     };
 
-    var geocoder = new google.maps.Geocoder();
-    var markers = [];
-
     var map = new google.maps.Map($('#map')[0], {
         zoom: 4,
         center: startLatLng,
         mapTypeId: 'hybrid',
-        animation: google.maps.Animation.BOUNCE
+    });
+
+    var geocoder = new google.maps.Geocoder();
+    var markers = [];
+    var clusterMarker = new MarkerClusterer(map, null, {
+        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
     function getLocation(address) {
@@ -35,27 +37,26 @@ function initMap() {
     }
 
     function createMarker(listing) {
-        getLocation(listing.apartment_listing_address)
-            .done(function(geometry) {
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: geometry.location,
-                    title: listing.apartment_listing_address
-                });
-                var infoWindow = new google.maps.InfoWindow({
-                    content: listing.apartment_listing_address + '<br/>Rent: $'
-                        + listing.user_apartment_info_rent + '/month<br/><br/>' +
-                        '<a href="/housing/' + listing.user_apartment_info_id +
-                        '">View more details...</a>'
-                })
-                marker.addListener('click', function() {
-                    infoWindow.open(map, marker);
-                })
-                markers.push(marker);
-            });
+        var marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(listing.apartment_latitude, listing.apartment_longitude),
+            title: listing.apartment_listing_address
+        });
+        var infoWindow = new google.maps.InfoWindow({
+            content: listing.apartment_listing_address +
+                '<br/>Monthly Rent: $' +
+                listing.user_apartment_info_rent + '<br/><br/>' +
+                '<a href="/housing/' + listing.user_apartment_info_id +
+                '">View more details...</a>'
+        })
+        marker.addListener('click', function() {
+            infoWindow.open(map, marker);
+        })
+        markers.push(marker);
     }
 
     function loadResults() {
+        clusterMarker.clearMarkers();
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
@@ -78,6 +79,8 @@ function initMap() {
                         new Date(endDateVal) <= new Date(d.user_apartment_info_end_date)
                         : true
                 }).forEach(createMarker);
+
+                clusterMarker.addMarkers(markers);
             })
             .fail(function(err) {
                 alert('Unables to load listings');

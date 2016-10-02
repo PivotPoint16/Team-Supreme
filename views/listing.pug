@@ -1,0 +1,30 @@
+extends layout/base.pug
+
+block append styles
+    link(rel='stylesheet', href='/css/listing.css')
+
+block content
+    article.columns.small-12.medium-8
+        h4= listing.apartment_listing_address
+        h5 Description
+        p= listing.user_apartment_info_description
+        h5 Monthly Rent
+        p $#{listing.user_apartment_info_rent}
+        h5 Available
+        p
+            =moment(listing.user_apartment_info_start_date).format('MMMM Do YYYY')
+            | &nbsp;&ndash;&nbsp;
+            =moment(listing.user_apartment_info_end_date).format('MMMM Do YYYY')
+        hr
+        h4 Host Information
+        p= listing.user_fullname
+            br
+            a(href=listing.user_email)= listing.user_email
+            br
+            =listing.user_phone
+    aside.columns.small-12.medium-4
+        #map(lat=listing.apartment_latitude, long=listing.apartment_longitude)
+
+block append scripts
+    script(src='/js/listing.js')
+    script(async, defer, src=`https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&callback=initMap`)
