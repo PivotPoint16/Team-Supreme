@@ -39,9 +39,12 @@ app.get('/housing-list', (req, res) => {
 });
 
 app.get('/jobs-list', (req, res) => {
-  const data = require('./etc/hudJobs');
-  res.setHeader('Content-Type', 'application/json');
-  res.send(data);
+    connection_pool.query('SELECT * FROM JOBS_CITY_LISTING_VIEW;',
+        (err, rows, fields) => {
+            if (err) throw err;
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(rows));
+        });
 });
 
 app.get('/housing/:id', (req, res) => {
